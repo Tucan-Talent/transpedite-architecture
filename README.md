@@ -33,7 +33,6 @@ The original system (Rails 5.0.2 / Ruby 2.4.1) is being **modernized in parallel
 | **Current sprint** | Sprint 1 of 7 |
 | **Stack target** | Rails 7.2 / Ruby 3.3 / PostgreSQL 16 / Redis 7 / AWS |
 | **HIPAA compliance** | AWS BAA signed (Organization-level); PHI Gate of 14 controls before real patient data is loaded |
-| **Cutover** | Sprint 7 (estimated August 2026) |
 | **Maintained by** | Toucan Talent |
 
 ---
