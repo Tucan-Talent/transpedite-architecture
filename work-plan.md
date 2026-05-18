@@ -244,7 +244,6 @@ This plan is considered approved when:
 ## Related documents
 
 - [Architecture diagram (Sprint 1)](./architecture-sprint-1.md) — what was delivered.
-- [Spanish version of this plan](./plan-de-trabajo.md) — same content in Spanish.
 - Sprint 1 work and detailed ticket history is maintained by Toucan Talent in the project's ClickUp workspace; the client has access for visibility and comments.
 
 ---
