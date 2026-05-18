@@ -6,6 +6,20 @@
 
 ---
 
+## ⏱ Duración del proyecto
+
+**Total: 8 semanas desde el kickoff hasta el hito M3** — PHI Gate certificado y plataforma lista para onboarding de hospitales.
+
+- **Semanas 1–4**: Núcleo de la aplicación reconstruido (M1)
+- **Semanas 5–6**: Ambiente Demo listo, UAT del cliente (M2)
+- **Semanas 7–8**: Controles HIPAA verificados, pentest cerrado, PHI Gate certificado (M3)
+
+La implementación por hospital (Fase 2) suma **1 a 3 semanas por hospital**, contratada por separado.
+
+Ver las secciones [Hitos](#hitos-milestones), [Diagrama de Gantt](#diagrama-de-gantt) y [Plan semana por semana](#plan-semana-por-semana) más abajo para el desglose completo.
+
+---
+
 ## Propósito de este documento
 
 Este plan cubre todo el trabajo desde el **Sprint 2 hasta la entrega de la plataforma modernizada lista para HIPAA, con un ambiente Demo en línea**.
