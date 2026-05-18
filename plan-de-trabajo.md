@@ -241,15 +241,7 @@ Este plan se considera aprobado cuando:
 
 ---
 
-## Firmas
 
-| Rol | Nombre | Fecha | Firma |
-|---|---|---|---|
-| Representante del cliente — Med-Rok | _________________________ | __ / __ / ____ | _________________________ |
-| Toucan Talent — Responsable de proyecto | Jorge Delgadillo | __ / __ / ____ | _________________________ |
-| Toucan Talent — Desarrollador líder | Javier Rodriguez | __ / __ / ____ | _________________________ |
-
----
 
 ## Documentos relacionados
 
