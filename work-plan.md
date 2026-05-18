@@ -32,31 +32,26 @@ This plan covers all work from **Sprint 2 through delivery of a HIPAA-ready mode
 
 | | |
 |---|---|
-| **Goal** | Modernize the Transpedite platform on a HIPAA-ready stack, with a Demo environment available for Med-Rok to present the platform to potential hospital clients. |
+| **Goal** | Modernize the Transpedite platform on a HIPAA-ready stack, with a Demo environment available for Med-Rok to present the platform to potential  clients. |
 | **Approach** | **Parallel rebuild**: the existing demo system stays available; the new platform is built next to it; the modernized platform becomes the Demo at the end of the project. |
 | **Team** | 2 senior developers + AI-assisted development workflow. |
 | **Total duration** | **~2 months from kickoff to platform ready**. Sprint 1 (1 week) already complete; this plan covers the remaining 8 weeks. |
 | **What's included** | Two environments — Development (internal) and Demo (client-facing). HIPAA controls verified and documented (PHI Gate certified ready). |
-| **What's NOT included** | Production environments for specific hospitals (provisioned on demand when a hospital starts using the platform with real patients). |
 | **Already delivered** | Sprint 1: HIPAA-ready AWS infrastructure, signed BAA, base application stack, project board, full documentation suite. |
 
 ---
 
 ## Scope
 
-This contract delivers the **Transpedite platform** — the technology that future hospital clients will use, plus a permanent **Demo environment** for sales presentations.
+This contract delivers the **Transpedite platform** — the technology that future clients will use, plus a permanent **Demo environment** for sales presentations.
 
 **Included**:
 - The application rebuilt on a modern, supported stack (Rails 7.2, Ruby 3.3, PostgreSQL 16).
 - All HIPAA security controls built into the code (encryption, audit logging, TLS, access controls).
-- The PHI Gate certified ready — all 14 controls verified — so any hospital can be onboarded later with no security blockers.
-- A Demo environment, accessible via URL, where Med-Rok can present the platform to potential hospital clients.
-- Migration tooling (reusable framework) designed so future hospital migrations can be done efficiently.
+- The PHI Gate certified ready — all 14 controls verified.
+- A Demo environment, accessible via URL, where Med-Rok can present the platform to potential clients.
 
-**Not included**:
-- Provisioning a Production environment for any specific hospital.
-- Migrating real patient data from any hospital.
-- Onboarding any hospital's staff or training their users.
+
 
 ---
 
@@ -66,9 +61,7 @@ This contract delivers the **Transpedite platform** — the technology that futu
 |---|---|---|---|
 | **Development** | Internal — for the development team to build and test. Runs locally. | Synthetic, generated automatically | ✅ Yes |
 | **Demo** | Client uses this to present the platform to potential hospital customers via URL. Looks like a working hospital but everything inside is fabricated. | Synthetic, curated to look realistic | ✅ Yes |
-| **Production (per hospital)** | Activated when a hospital signs and is ready to use the platform with real patients. Full HIPAA controls active and audited. | **Real patient data — HIPAA-regulated** | ❌ Not included. Provisioned per hospital, on demand. |
 
-**Why two environments are enough for this contract:** No hospital is using the platform with real patients yet. Provisioning a Production environment before there is a real hospital using it means paying for unused infrastructure. Production environments are created on demand, one per hospital, as Med-Rok signs them.
 
 ---
 
@@ -77,8 +70,8 @@ This contract delivers the **Transpedite platform** — the technology that futu
 | # | Milestone | Week | What the client receives |
 |---|---|---|---|
 | **M1** | Application core rebuilt | End of Week 4 | All 34 domain models reconstructed on Rails 7.2; state machines operational; PHI encryption configured; access audit table live. Available for technical inspection. |
-| **M2** | Demo environment ready for client review | End of Week 6 | Full application running in the Demo environment with curated synthetic data. Client and sales team can use it to present to hospital prospects. |
-| **M3** | **PHI Gate certified — platform ready for hospital onboarding** | End of Week 8 | All 14 HIPAA controls verified and documented. External pentest passed. The platform is technically ready to accept any hospital's real data when needed. |
+| **M2** | Demo environment ready for client review | End of Week 6 | Full application running in the Demo environment with curated synthetic data. Client and sales team can use it to present to prospects. |
+| **M3** | **PHI Gate certified — platform ready** | End of Week 8 | All 14 HIPAA controls verified and documented. External pentest passed. The platform is technically ready for HIPAA-regulated use. |
 
 ---
 
@@ -113,7 +106,7 @@ gantt
 
     section Demo finalization
     Demo polish + presentable data           :d1, 2026-07-13, 1w
-    Platform ready for onboarding (M3)       :milestone, d2, 2026-07-19, 0d
+    Platform ready (M3)                      :milestone, d2, 2026-07-19, 0d
 ```
 
 *Dates assume kickoff on 2026-05-25 (the Monday following plan approval). All dates shift by the same amount if approval is delayed.*
@@ -166,7 +159,7 @@ gantt
 ### Week 8 — PHI Gate certification ← **M3: Platform ready**
 **Build:** Final Demo polish.
 **HIPAA:** All 14 controls verified, individually documented, and signed off (control #14 included).
-**Deliverable:** PHI Gate certificate. The platform is technically ready to accept the first hospital onboarding when one signs.
+**Deliverable:** PHI Gate certificate. The platform is technically ready for HIPAA-regulated use.
 
 ---
 
@@ -184,7 +177,7 @@ These items determine whether the timeline holds:
 
 ## PHI Gate — the 14 controls
 
-Although no real PHI is loaded during this contract, the PHI Gate is certified ready so that when Med-Rok signs the first hospital, no security blockers remain. All 14 controls signed off by Week 8:
+Although no real PHI is loaded during this contract, the PHI Gate is certified ready so that no security blockers remain. All 14 controls signed off by Week 8:
 
 | # | Control | When verified |
 |---|---|---|
@@ -213,7 +206,6 @@ Although no real PHI is loaded during this contract, the PHI Gate is certified r
 | Legacy domain logic reveals unknown complexity | Build phase extends 1–2 weeks | Built-in buffer in Week 6 (UAT) where bug fixes are scoped. |
 | Scope creep on new modules | Build phase extends | Scope frozen at end of Week 1. Changes route to a follow-on engagement. |
 | Pentest vendor lead time longer than 1 week | Pentest finishes later | Contract signed Week 1; alternate vendors identified as backup. |
-| Med-Rok wants to onboard a hospital before PHI Gate is certified | HIPAA exposure | Hospital onboarding only begins after the PHI Gate is certified (Week 8 milestone). |
 
 ---
 
@@ -223,7 +215,6 @@ The current Transpedite demo runs on technology components that have not receive
 
 For that reason, the project rebuilds the application on a modern, supported stack rather than simply moving the legacy code onto the new AWS infrastructure. The current demo keeps operating throughout the project, without interruption, until the new platform is ready to replace it.
 
-The modernization closes a compliance gap that exists today. It is what enables Med-Rok to start selling the platform to hospitals.
 
 ---
 
