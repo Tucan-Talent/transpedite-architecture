@@ -36,7 +36,7 @@ Este plan cubre todo el trabajo desde el **Sprint 2 hasta la entrega de la plata
 |---|---|
 | **Objetivo** | Modernizar la plataforma Transpedite sobre un stack listo para HIPAA, con un ambiente Demo disponible para que Med-Rok presente la plataforma a hospitales potenciales. |
 | **Enfoque** | **Reconstrucción en paralelo**: el sistema demo actual sigue disponible; la nueva plataforma se construye al lado; al final del proyecto, la plataforma modernizada reemplaza al Demo actual. |
-| **Equipo** | 2 desarrolladores senior + flujo de trabajo asistido con IA (Claude). |
+| **Equipo** | 2 desarrolladores senior + flujo de trabajo asistido con IA. |
 | **Duración total** | **~2 meses desde el kickoff hasta plataforma lista**. Sprint 1 (1 semana) ya está completo; este plan cubre las 8 semanas restantes. |
 | **Qué incluye** | Dos ambientes — Desarrollo (interno) y Demo (visible al cliente). Controles HIPAA verificados y documentados (PHI Gate certificado listo). |
 | **Qué NO incluye** | Ambientes de Producción para hospitales específicos. La implementación por hospital es un contrato aparte (ver sección "Alcance"). |
