@@ -8,11 +8,13 @@
 
 ## ⏱ Duración del proyecto
 
-**Total: 8 semanas desde el kickoff hasta el hito M3** — PHI Gate certificado y plataforma lista para onboarding de hospitales.
+**Proyecto completo: aproximadamente 2 meses desde el kickoff hasta el hito M3** (plataforma lista, PHI Gate certificado).
 
-- **Semanas 1–4**: Núcleo de la aplicación reconstruido (M1)
-- **Semanas 5–6**: Ambiente Demo listo, UAT del cliente (M2)
-- **Semanas 7–8**: Controles HIPAA verificados, pentest cerrado, PHI Gate certificado (M3)
+- ✅ **Sprint 1 — Cimientos (1 semana)**: completado
+- **Sprint 2 en adelante — este plan (8 semanas restantes)**:
+  - Semanas 1–4: Núcleo de la aplicación reconstruido (M1)
+  - Semanas 5–6: Ambiente Demo listo, UAT del cliente (M2)
+  - Semanas 7–8: Controles HIPAA verificados, pentest cerrado, PHI Gate certificado (M3)
 
 La implementación por hospital (Fase 2) suma **1 a 3 semanas por hospital**, contratada por separado.
 
@@ -35,7 +37,7 @@ Este plan cubre todo el trabajo desde el **Sprint 2 hasta la entrega de la plata
 | **Objetivo** | Modernizar la plataforma Transpedite sobre un stack listo para HIPAA, con un ambiente Demo disponible para que Med-Rok presente la plataforma a hospitales potenciales. |
 | **Enfoque** | **Reconstrucción en paralelo**: el sistema demo actual sigue disponible; la nueva plataforma se construye al lado; al final del proyecto, la plataforma modernizada reemplaza al Demo actual. |
 | **Equipo** | 2 desarrolladores senior + flujo de trabajo asistido con IA (Claude). |
-| **Duración** | **8 semanas**, bajo las condiciones de la sección "Qué necesitamos del cliente". |
+| **Duración total** | **~2 meses desde el kickoff hasta plataforma lista**. Sprint 1 (1 semana) ya está completo; este plan cubre las 8 semanas restantes. |
 | **Qué incluye** | Dos ambientes — Desarrollo (interno) y Demo (visible al cliente). Controles HIPAA verificados y documentados (PHI Gate certificado listo). |
 | **Qué NO incluye** | Ambientes de Producción para hospitales específicos. La implementación por hospital es un contrato aparte (ver sección "Alcance"). |
 | **Ya entregado** | Sprint 1: infraestructura AWS lista para HIPAA, BAA firmado, stack base de la aplicación, tablero de gestión, suite completa de documentación. |

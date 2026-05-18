@@ -8,11 +8,13 @@
 
 ## ⏱ Project duration
 
-**Total: 8 weeks from kickoff to milestone M3** — PHI Gate certified and platform ready for hospital onboarding.
+**Total project: approximately 2 months from project kickoff to milestone M3** (platform ready, PHI Gate certified).
 
-- **Weeks 1–4**: Application core rebuilt (M1)
-- **Weeks 5–6**: Demo environment ready, client UAT (M2)
-- **Weeks 7–8**: HIPAA controls verified, pentest closed, PHI Gate certified (M3)
+- ✅ **Sprint 1 — Foundation (1 week)**: complete
+- **Sprint 2 onward — this plan (8 weeks remaining)**:
+  - Weeks 1–4: Application core rebuilt (M1)
+  - Weeks 5–6: Demo environment ready, client UAT (M2)
+  - Weeks 7–8: HIPAA controls verified, pentest closed, PHI Gate certified (M3)
 
 Per-hospital implementation (Phase 2) adds **1 to 3 weeks per hospital**, contracted separately.
 
@@ -35,7 +37,7 @@ This plan covers all work from **Sprint 2 through delivery of a HIPAA-ready mode
 | **Goal** | Modernize the Transpedite platform on a HIPAA-ready stack, with a Demo environment available for Med-Rok to present the platform to potential hospital clients. |
 | **Approach** | **Parallel rebuild**: the existing demo system stays available; the new platform is built next to it; the modernized platform becomes the Demo at the end of the project. |
 | **Team** | 2 senior developers + AI-assisted development workflow (Claude). |
-| **Duration** | **8 weeks** under the conditions stated in "What we need from the client". |
+| **Total duration** | **~2 months from kickoff to platform ready**. Sprint 1 (1 week) already complete; this plan covers the remaining 8 weeks. |
 | **What's included** | Two environments — Development (internal) and Demo (client-facing). HIPAA controls verified and documented (PHI Gate certified ready). |
 | **What's NOT included** | Production environments for specific hospitals. Per-hospital implementation work is a separate engagement (see Scope section below). |
 | **Already delivered** | Sprint 1: HIPAA-ready AWS infrastructure, signed BAA, base application stack, project board, full documentation suite. |
