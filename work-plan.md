@@ -42,6 +42,24 @@ This plan covers all work from **Sprint 2 through delivery of a HIPAA-ready mode
 
 ---
 
+## Scope
+
+This contract delivers the **Transpedite platform** — the technology that future hospital clients will use, plus a permanent **Demo environment** for sales presentations.
+
+**Included**:
+- The application rebuilt on a modern, supported stack (Rails 7.2, Ruby 3.3, PostgreSQL 16).
+- All HIPAA security controls built into the code (encryption, audit logging, TLS, access controls).
+- The PHI Gate certified ready — all 14 controls verified — so any hospital can be onboarded later with no security blockers.
+- A Demo environment, accessible via URL, where Med-Rok can present the platform to potential hospital clients.
+- Migration tooling (reusable framework) designed so future hospital migrations can be done efficiently.
+
+**Not included**:
+- Provisioning a Production environment for any specific hospital.
+- Migrating real patient data from any hospital.
+- Onboarding any hospital's staff or training their users.
+
+---
+
 ## Environments
 
 | Environment | Purpose | Data | Included in this contract |
@@ -83,6 +101,10 @@ gantt
     UI complete + Demo environment           :a5, after a4, 1w
     Client UAT in Demo (M2)                  :a6, after a5, 1w
 
+    section Migration tooling (reusable)
+    Migration framework design               :b1, 2026-06-08, 2w
+    Migration scripts per domain             :b2, after b1, 2w
+
     section HIPAA Gate
     Pentest contracted + backups built       :crit, c1, 2026-05-25, 1w
     Pentest execution (external vendor)      :c2, after c1, 3w
@@ -102,26 +124,31 @@ gantt
 
 ### Week 1 — Kickoff
 **Build:** Application skeleton on Rails 7.2 — model classes, migrations for the 27 base tables, Active Record Encryption keys provisioned in AWS, PHI access audit table created.
+**Migration tooling:** Initial design for the migration script framework.
 **HIPAA:** External pentest vendor contracted and scheduled; automated backup infrastructure built.
 **Deliverable:** Schema deployed in the Demo environment.
 
 ### Week 2 — State machines and authorization
 **Build:** Transfer workflow state machines (Statesman), history tables, Pundit authorization policies for every controller, security questions flow.
+**Migration tooling:** First migration script templates (users, hospitals, facilities).
 **HIPAA:** Backup restore drill executed and documented (control #9).
 **Deliverable:** Core workflow operational with synthetic data; user authentication and authorization complete.
 
 ### Week 3 — Search, matching, background jobs
 **Build:** Patient-bed matching algorithm; PostgreSQL full-text search (replaces legacy Solr); background job system for SLA tracking and notifications (replaces legacy cron battery).
+**Migration tooling:** Templates for cases, beds, and matches.
 **HIPAA:** Pentest executes (external vendor, in parallel with development).
 **Deliverable:** Matching engine functional; SLA timers active; search across cases and beds.
 
 ### Week 4 — New modules and integration ← **M1: Core rebuilt**
 **Build:** Discharge Barrier checklist module; Inpatient Psychiatric profile module; integration tests covering the full transfer workflow end-to-end.
+**Migration tooling:** All 8 migration script templates complete and tested with synthetic data.
 **HIPAA:** Pentest continues; preliminary findings reviewed if available.
 **Deliverable:** All functional modules built and integrated. Client can review code and architecture.
 
 ### Week 5 — UI rebuild and Demo environment
 **Build:** Complete UI rebuild on the modern stack; PDF generation for face sheets; attachments uploading to encrypted S3 (in the Demo environment).
+**Migration tooling:** Migration framework documented for future use.
 **HIPAA:** Pentest report received; remediation work begins.
 **Deliverable:** Demo environment fully operational with synthetic data.
 

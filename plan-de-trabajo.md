@@ -42,6 +42,24 @@ Este plan cubre todo el trabajo desde el **Sprint 2 hasta la entrega de la plata
 
 ---
 
+## Alcance
+
+Este contrato entrega la **plataforma Transpedite** — la tecnología que los futuros hospitales clientes van a usar, más un **ambiente Demo permanente** para presentaciones de venta.
+
+**Sí incluye**:
+- La aplicación reconstruida sobre un stack moderno y con soporte vigente (Rails 7.2, Ruby 3.3, PostgreSQL 16).
+- Todos los controles de seguridad HIPAA integrados en el código (cifrado, registros de auditoría, TLS, control de acceso).
+- El PHI Gate certificado listo — los 14 controles verificados — para que cualquier hospital pueda ser onboardeado más adelante sin trabas de seguridad.
+- Un ambiente Demo, accesible por URL, donde Med-Rok puede presentar la plataforma a hospitales potenciales.
+- Las herramientas de migración (framework reutilizable) diseñadas para que las migraciones de hospitales futuros se puedan hacer de forma eficiente.
+
+**No incluye**:
+- Provisionar un ambiente de Producción para ningún hospital específico.
+- Migrar datos reales de pacientes de ningún hospital.
+- Onboardear personal de ningún hospital ni capacitar a sus usuarios.
+
+---
+
 ## Ambientes
 
 | Ambiente | Para qué sirve | Tipo de datos | Incluido en este contrato |
@@ -83,6 +101,10 @@ gantt
     UI completa + ambiente Demo              :a5, after a4, 1w
     UAT del cliente en Demo (M2)             :a6, after a5, 1w
 
+    section Herramientas de migración (reutilizables)
+    Diseño del framework                     :b1, 2026-06-08, 2w
+    Scripts por dominio                      :b2, after b1, 2w
+
     section PHI Gate (HIPAA)
     Contratación pentest + backups           :crit, c1, 2026-05-25, 1w
     Ejecución pentest (proveedor externo)    :c2, after c1, 3w
@@ -102,26 +124,31 @@ gantt
 
 ### Semana 1 — Kickoff
 **Construcción:** Esqueleto de la aplicación sobre Rails 7.2 — clases de modelos, migraciones para las 27 tablas base, llaves de Active Record Encryption provisionadas en AWS, tabla de auditoría de acceso a PHI creada.
+**Migración (tooling):** Diseño inicial del framework de scripts de migración.
 **HIPAA:** Proveedor de pentest externo contratado y agendado; infraestructura de backups automáticos construida.
 **Entregable:** Esquema desplegado en el ambiente Demo.
 
 ### Semana 2 — Máquinas de estado y autorización
 **Construcción:** Máquinas de estado del workflow de transferencias (Statesman), tablas de historial, políticas Pundit de autorización para cada controlador, flujo de preguntas de seguridad.
+**Migración (tooling):** Primeros templates de migración (users, hospitals, facilities).
 **HIPAA:** Drill de restauración de backups ejecutado y documentado (control #9).
 **Entregable:** Workflow básico operativo con datos sintéticos; autenticación y autorización de usuarios completas.
 
 ### Semana 3 — Búsqueda, matching, jobs en background
 **Construcción:** Algoritmo de matching paciente-cama; búsqueda full-text en PostgreSQL (reemplaza Solr del legacy); sistema de jobs para SLA tracking y notificaciones (reemplaza la batería de cron del legacy).
+**Migración (tooling):** Templates para cases, beds y matches.
 **HIPAA:** Ejecución del pentest (proveedor externo, en paralelo con el desarrollo).
 **Entregable:** Motor de matching funcional; temporizadores SLA activos; búsqueda funcionando sobre casos y camas.
 
 ### Semana 4 — Módulos nuevos e integración ← **M1: Núcleo reconstruido**
 **Construcción:** Módulo Discharge Barrier (checklist); módulo Inpatient Psych (perfil); tests de integración cubriendo el workflow completo de transferencias.
+**Migración (tooling):** Los 8 templates de scripts de migración completos y probados con datos sintéticos.
 **HIPAA:** Pentest continúa; revisión de hallazgos preliminares si están disponibles.
 **Entregable:** Todos los módulos funcionales construidos e integrados. El cliente puede revisar código y arquitectura.
 
 ### Semana 5 — Reconstrucción de UI y ambiente Demo
 **Construcción:** Reconstrucción completa de la UI sobre el stack moderno; generación de PDF (face sheets); subida de archivos adjuntos al S3 cifrado (en el ambiente Demo).
+**Migración (tooling):** Framework de migración documentado para uso futuro.
 **HIPAA:** Reporte de pentest recibido; trabajo de remediación comienza.
 **Entregable:** Ambiente Demo totalmente operativo con datos sintéticos.
 
