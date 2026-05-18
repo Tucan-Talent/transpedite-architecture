@@ -60,7 +60,7 @@ Este contrato entrega la **plataforma Transpedite** — la tecnología que los f
 | Ambiente | Para qué sirve | Tipo de datos | Incluido en este contrato |
 |---|---|---|---|
 | **Desarrollo** | Interno — donde el equipo de desarrollo construye y prueba. Corre localmente. | Sintéticos, generados automáticamente | ✅ Sí |
-| **Demo** | El cliente lo usa para presentar la plataforma a clientes potenciales por URL. Se ve como un sistema real funcionando, pero todo lo de adentro es inventado. | Sintéticos, curados para verse realistas | ✅ Sí |
+| **Demo** | El cliente lo usa para presentar la plataforma a clientes potenciales por URL. | Sintéticos, curados para verse realistas | ✅ Sí |
 
 
 ---

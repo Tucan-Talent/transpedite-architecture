@@ -60,7 +60,7 @@ This contract delivers the **Transpedite platform** — the technology that futu
 | Environment | Purpose | Data | Included in this contract |
 |---|---|---|---|
 | **Development** | Internal — for the development team to build and test. Runs locally. | Synthetic, generated automatically | ✅ Yes |
-| **Demo** | Client uses this to present the platform to potential hospital customers via URL. Looks like a working hospital but everything inside is fabricated. | Synthetic, curated to look realistic | ✅ Yes |
+| **Demo** | Client uses this to present the platform to potential customers via URL. | Synthetic, curated to look realistic | ✅ Yes |
 
 
 ---
