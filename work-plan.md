@@ -241,16 +241,6 @@ This plan is considered approved when:
 
 ---
 
-## Sign-off
-
-| Role | Name | Date | Signature |
-|---|---|---|---|
-| Client representative — Med-Rok | _________________________ | __ / __ / ____ | _________________________ |
-| Toucan Talent — Project owner | Jorge Delgadillo | __ / __ / ____ | _________________________ |
-| Toucan Talent — Lead developer | Javier Rodriguez | __ / __ / ____ | _________________________ |
-
----
-
 ## Related documents
 
 - [Architecture diagram (Sprint 1)](./architecture-sprint-1.md) — what was delivered.
