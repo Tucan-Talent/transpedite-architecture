@@ -16,8 +16,6 @@
   - Weeks 5–6: Demo environment ready, client UAT (M2)
   - Weeks 7–8: HIPAA controls verified, pentest closed, PHI Gate certified (M3)
 
-Per-hospital implementation (Phase 2) adds **1 to 3 weeks per hospital**, contracted separately.
-
 See the [Milestones](#milestones), [Gantt chart](#gantt-chart) and [Week-by-week plan](#week-by-week-plan) sections below for the full breakdown.
 
 ---
@@ -39,53 +37,18 @@ This plan covers all work from **Sprint 2 through delivery of a HIPAA-ready mode
 | **Team** | 2 senior developers + AI-assisted development workflow. |
 | **Total duration** | **~2 months from kickoff to platform ready**. Sprint 1 (1 week) already complete; this plan covers the remaining 8 weeks. |
 | **What's included** | Two environments — Development (internal) and Demo (client-facing). HIPAA controls verified and documented (PHI Gate certified ready). |
-| **What's NOT included** | Production environments for specific hospitals. Per-hospital implementation work is a separate engagement (see Scope section below). |
+| **What's NOT included** | Production environments for specific hospitals (provisioned on demand when a hospital starts using the platform with real patients). |
 | **Already delivered** | Sprint 1: HIPAA-ready AWS infrastructure, signed BAA, base application stack, project board, full documentation suite. |
 
 ---
 
-## Scope — Two phases, two engagements
-
-This is the critical structural point of the contract:
-
-### Phase 1 — Platform modernization *(this contract)*
-
-This contract delivers the **Transpedite platform** — the technology that future hospital clients will use, plus a permanent **Demo environment** for sales presentations.
-
-It **includes**:
-- The application rebuilt on a modern, supported stack (Rails 7.2, Ruby 3.3, PostgreSQL 16).
-- All HIPAA security controls built into the code (encryption, audit logging, TLS, access controls).
-- The PHI Gate certified ready — all 14 controls verified — so any hospital can be onboarded later with no security blockers.
-- A Demo environment, accessible via URL, where Med-Rok can present the platform to potential hospital clients.
-- Migration tooling (reusable framework) so future hospitals can be migrated efficiently.
-
-It does **not** include:
-- Provisioning a Production environment for any specific hospital.
-- Migrating real patient data from any hospital.
-- Onboarding any hospital's staff or training their users.
-
-### Phase 2 — Per-hospital implementation *(separate engagement, each time)*
-
-When the first hospital is ready to use the platform with real patients — **including the founder's own institution** — a separate implementation phase is needed:
-
-- Provisioning a dedicated Production environment for that hospital.
-- Migrating their existing data, if any (using the migration tooling built in Phase 1).
-- Training their staff.
-- Activating the PHI Gate controls for that specific environment.
-
-This phase typically takes **1 to 3 weeks per hospital**, depending on whether they have existing data to migrate and the complexity of their setup. It is scoped, planned, and contracted separately, per hospital.
-
----
-
-## Environments included in this contract
-
-Three environments make up the full platform. **This contract covers two of them**; the third is provisioned separately, per hospital, when needed.
+## Environments
 
 | Environment | Purpose | Data | Included in this contract |
 |---|---|---|---|
 | **Development** | Internal — for the development team to build and test. Runs locally. | Synthetic, generated automatically | ✅ Yes |
 | **Demo** | Client uses this to present the platform to potential hospital customers via URL. Looks like a working hospital but everything inside is fabricated. | Synthetic, curated to look realistic | ✅ Yes |
-| **Production (per hospital)** | Activated when a hospital signs and is ready to use the platform with real patients. Full HIPAA controls active and audited. | **Real patient data — HIPAA-regulated** | ❌ Not included. Provisioned per hospital during a Phase 2 implementation. |
+| **Production (per hospital)** | Activated when a hospital signs and is ready to use the platform with real patients. Full HIPAA controls active and audited. | **Real patient data — HIPAA-regulated** | ❌ Not included. Provisioned per hospital, on demand. |
 
 **Why two environments are enough for this contract:** No hospital is using the platform with real patients yet. Provisioning a Production environment before there is a real hospital using it means paying for unused infrastructure. Production environments are created on demand, one per hospital, as Med-Rok signs them.
 
@@ -97,7 +60,7 @@ Three environments make up the full platform. **This contract covers two of them
 |---|---|---|---|
 | **M1** | Application core rebuilt | End of Week 4 | All 34 domain models reconstructed on Rails 7.2; state machines operational; PHI encryption configured; access audit table live. Available for technical inspection. |
 | **M2** | Demo environment ready for client review | End of Week 6 | Full application running in the Demo environment with curated synthetic data. Client and sales team can use it to present to hospital prospects. |
-| **M3** | **PHI Gate certified — platform ready for hospital onboarding** | End of Week 8 | All 14 HIPAA controls verified and documented. External pentest passed. The platform is technically ready to accept any hospital's real data in a Phase 2 implementation. |
+| **M3** | **PHI Gate certified — platform ready for hospital onboarding** | End of Week 8 | All 14 HIPAA controls verified and documented. External pentest passed. The platform is technically ready to accept any hospital's real data when needed. |
 
 ---
 
@@ -120,10 +83,6 @@ gantt
     UI complete + Demo environment           :a5, after a4, 1w
     Client UAT in Demo (M2)                  :a6, after a5, 1w
 
-    section Migration tooling (reusable)
-    Migration framework design               :b1, 2026-06-08, 2w
-    Migration scripts per domain             :b2, after b1, 2w
-
     section HIPAA Gate
     Pentest contracted + backups built       :crit, c1, 2026-05-25, 1w
     Pentest execution (external vendor)      :c2, after c1, 3w
@@ -143,31 +102,26 @@ gantt
 
 ### Week 1 — Kickoff
 **Build:** Application skeleton on Rails 7.2 — model classes, migrations for the 27 base tables, Active Record Encryption keys provisioned in AWS, PHI access audit table created.
-**Migration tooling:** Initial design for the migration script framework (used in future per-hospital implementations).
 **HIPAA:** External pentest vendor contracted and scheduled; automated backup infrastructure built.
-**Deliverable:** Schema deployed in the Demo environment; framework scaffolded.
+**Deliverable:** Schema deployed in the Demo environment.
 
 ### Week 2 — State machines and authorization
 **Build:** Transfer workflow state machines (Statesman), history tables, Pundit authorization policies for every controller, security questions flow.
-**Migration tooling:** First migration script templates (users, hospitals, facilities).
 **HIPAA:** Backup restore drill executed and documented (control #9).
 **Deliverable:** Core workflow operational with synthetic data; user authentication and authorization complete.
 
 ### Week 3 — Search, matching, background jobs
 **Build:** Patient-bed matching algorithm; PostgreSQL full-text search (replaces legacy Solr); background job system for SLA tracking and notifications (replaces legacy cron battery).
-**Migration tooling:** Templates for cases, beds, and matches.
 **HIPAA:** Pentest executes (external vendor, in parallel with development).
 **Deliverable:** Matching engine functional; SLA timers active; search across cases and beds.
 
 ### Week 4 — New modules and integration ← **M1: Core rebuilt**
 **Build:** Discharge Barrier checklist module; Inpatient Psychiatric profile module; integration tests covering the full transfer workflow end-to-end.
-**Migration tooling:** All 8 migration script templates complete and tested with synthetic data.
 **HIPAA:** Pentest continues; preliminary findings reviewed if available.
 **Deliverable:** All functional modules built and integrated. Client can review code and architecture.
 
 ### Week 5 — UI rebuild and Demo environment
 **Build:** Complete UI rebuild on the modern stack; PDF generation for face sheets; attachments uploading to encrypted S3 (in the Demo environment).
-**Migration tooling:** Migration framework documented for use during per-hospital implementations.
 **HIPAA:** Pentest report received; remediation work begins.
 **Deliverable:** Demo environment fully operational with synthetic data.
 
@@ -183,9 +137,9 @@ gantt
 **Deliverable:** Demo data presentable; HIPAA controls on track.
 
 ### Week 8 — PHI Gate certification ← **M3: Platform ready**
-**Build:** Final Demo polish; documentation of the per-hospital implementation playbook (used in Phase 2).
+**Build:** Final Demo polish.
 **HIPAA:** All 14 controls verified, individually documented, and signed off (control #14 included).
-**Deliverable:** PHI Gate certificate. The platform is technically ready to accept the first hospital onboarding (Phase 2 engagement).
+**Deliverable:** PHI Gate certificate. The platform is technically ready to accept the first hospital onboarding when one signs.
 
 ---
 
@@ -232,7 +186,7 @@ Although no real PHI is loaded during this contract, the PHI Gate is certified r
 | Legacy domain logic reveals unknown complexity | Build phase extends 1–2 weeks | Built-in buffer in Week 6 (UAT) where bug fixes are scoped. |
 | Scope creep on new modules | Build phase extends | Scope frozen at end of Week 1. Changes route to a follow-on engagement. |
 | Pentest vendor lead time longer than 1 week | Pentest finishes later | Contract signed Week 1; alternate vendors identified as backup. |
-| Med-Rok wants to onboard a hospital before PHI Gate is certified | HIPAA exposure | Hospital onboarding (Phase 2) only begins after Week 8 milestone is signed off. |
+| Med-Rok wants to onboard a hospital before PHI Gate is certified | HIPAA exposure | Hospital onboarding only begins after the PHI Gate is certified (Week 8 milestone). |
 
 ---
 
@@ -251,7 +205,6 @@ The modernization closes a compliance gap that exists today. It is what enables 
 This plan is considered approved when:
 
 - The **3 milestones (M1–M3)** are accepted as the project's measurable outcomes.
-- The **scope separation between Phase 1 and Phase 2** is acknowledged.
 - The **3 client commitments** are accepted.
 - The **8-week timeline** is approved.
 
