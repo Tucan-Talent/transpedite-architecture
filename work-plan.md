@@ -36,7 +36,7 @@ This plan covers all work from **Sprint 2 through delivery of a HIPAA-ready mode
 |---|---|
 | **Goal** | Modernize the Transpedite platform on a HIPAA-ready stack, with a Demo environment available for Med-Rok to present the platform to potential hospital clients. |
 | **Approach** | **Parallel rebuild**: the existing demo system stays available; the new platform is built next to it; the modernized platform becomes the Demo at the end of the project. |
-| **Team** | 2 senior developers + AI-assisted development workflow (Claude). |
+| **Team** | 2 senior developers + AI-assisted development workflow. |
 | **Total duration** | **~2 months from kickoff to platform ready**. Sprint 1 (1 week) already complete; this plan covers the remaining 8 weeks. |
 | **What's included** | Two environments — Development (internal) and Demo (client-facing). HIPAA controls verified and documented (PHI Gate certified ready). |
 | **What's NOT included** | Production environments for specific hospitals. Per-hospital implementation work is a separate engagement (see Scope section below). |
