@@ -32,31 +32,26 @@ Este plan cubre todo el trabajo desde el **Sprint 2 hasta la entrega de la plata
 
 | | |
 |---|---|
-| **Objetivo** | Modernizar la plataforma Transpedite sobre un stack listo para HIPAA, con un ambiente Demo disponible para que Med-Rok presente la plataforma a hospitales potenciales. |
+| **Objetivo** | Modernizar la plataforma Transpedite sobre un stack listo para HIPAA, con un ambiente Demo disponible para que Med-Rok presente la plataforma a clientes potenciales. |
 | **Enfoque** | **Reconstrucción en paralelo**: el sistema demo actual sigue disponible; la nueva plataforma se construye al lado; al final del proyecto, la plataforma modernizada reemplaza al Demo actual. |
 | **Equipo** | 2 desarrolladores senior + flujo de trabajo asistido con IA. |
 | **Duración total** | **~2 meses desde el kickoff hasta plataforma lista**. Sprint 1 (1 semana) ya está completo; este plan cubre las 8 semanas restantes. |
 | **Qué incluye** | Dos ambientes — Desarrollo (interno) y Demo (visible al cliente). Controles HIPAA verificados y documentados (PHI Gate certificado listo). |
-| **Qué NO incluye** | Ambientes de Producción para hospitales específicos (se provisionan bajo demanda cuando un hospital empiece a usar la plataforma con pacientes reales). |
 | **Ya entregado** | Sprint 1: infraestructura AWS lista para HIPAA, BAA firmado, stack base de la aplicación, tablero de gestión, suite completa de documentación. |
 
 ---
 
 ## Alcance
 
-Este contrato entrega la **plataforma Transpedite** — la tecnología que los futuros hospitales clientes van a usar, más un **ambiente Demo permanente** para presentaciones de venta.
+Este contrato entrega la **plataforma Transpedite** — la tecnología que los futuros clientes van a usar, más un **ambiente Demo permanente** para presentaciones de venta.
 
 **Sí incluye**:
 - La aplicación reconstruida sobre un stack moderno y con soporte vigente (Rails 7.2, Ruby 3.3, PostgreSQL 16).
 - Todos los controles de seguridad HIPAA integrados en el código (cifrado, registros de auditoría, TLS, control de acceso).
-- El PHI Gate certificado listo — los 14 controles verificados — para que cualquier hospital pueda ser onboardeado más adelante sin trabas de seguridad.
-- Un ambiente Demo, accesible por URL, donde Med-Rok puede presentar la plataforma a hospitales potenciales.
-- Las herramientas de migración (framework reutilizable) diseñadas para que las migraciones de hospitales futuros se puedan hacer de forma eficiente.
+- El PHI Gate certificado listo — los 14 controles verificados.
+- Un ambiente Demo, accesible por URL, donde Med-Rok puede presentar la plataforma a clientes potenciales.
 
-**No incluye**:
-- Provisionar un ambiente de Producción para ningún hospital específico.
-- Migrar datos reales de pacientes de ningún hospital.
-- Onboardear personal de ningún hospital ni capacitar a sus usuarios.
+
 
 ---
 
@@ -65,10 +60,8 @@ Este contrato entrega la **plataforma Transpedite** — la tecnología que los f
 | Ambiente | Para qué sirve | Tipo de datos | Incluido en este contrato |
 |---|---|---|---|
 | **Desarrollo** | Interno — donde el equipo de desarrollo construye y prueba. Corre localmente. | Sintéticos, generados automáticamente | ✅ Sí |
-| **Demo** | El cliente lo usa para presentar la plataforma a hospitales potenciales por URL. Se ve como un hospital real funcionando, pero todo lo de adentro es inventado. | Sintéticos, curados para verse realistas | ✅ Sí |
-| **Producción (por hospital)** | Se activa cuando un hospital firma y va a usar la plataforma con pacientes reales. Todos los controles HIPAA activos y auditados. | **Datos reales de pacientes — regulados por HIPAA** | ❌ No incluido. Se provisiona por hospital, bajo demanda. |
+| **Demo** | El cliente lo usa para presentar la plataforma a clientes potenciales por URL. Se ve como un sistema real funcionando, pero todo lo de adentro es inventado. | Sintéticos, curados para verse realistas | ✅ Sí |
 
-**Por qué dos ambientes alcanzan en este contrato:** Todavía no hay ningún hospital usando la plataforma con pacientes reales. Provisionar un ambiente de Producción antes de que exista un hospital real usándolo significa pagar por infraestructura sin uso. Los ambientes de Producción se crean bajo demanda, uno por hospital, a medida que Med-Rok los firme.
 
 ---
 
@@ -77,8 +70,8 @@ Este contrato entrega la **plataforma Transpedite** — la tecnología que los f
 | # | Hito | Semana | Qué recibe el cliente |
 |---|---|---|---|
 | **M1** | Núcleo de la aplicación reconstruido | Fin de Semana 4 | Los 34 modelos del dominio reconstruidos sobre Rails 7.2; máquinas de estado operativas; cifrado PHI configurado; tabla de auditoría de acceso operativa. Disponible para inspección técnica. |
-| **M2** | Ambiente Demo listo para revisión del cliente | Fin de Semana 6 | Aplicación completa corriendo en el ambiente Demo con datos sintéticos curados. El cliente y el equipo de ventas pueden usarlo para presentar a hospitales prospects. |
-| **M3** | **PHI Gate certificado — plataforma lista para onboarding de hospitales** | Fin de Semana 8 | Los 14 controles HIPAA verificados y documentados. Pentest externo aprobado. La plataforma está técnicamente lista para aceptar datos reales de cualquier hospital cuando se necesite. |
+| **M2** | Ambiente Demo listo para revisión del cliente | Fin de Semana 6 | Aplicación completa corriendo en el ambiente Demo con datos sintéticos curados. El cliente y el equipo de ventas pueden usarlo para presentar a prospects. |
+| **M3** | **PHI Gate certificado — plataforma lista** | Fin de Semana 8 | Los 14 controles HIPAA verificados y documentados. Pentest externo aprobado. La plataforma está técnicamente lista para uso regulado por HIPAA. |
 
 ---
 
@@ -113,7 +106,7 @@ gantt
 
     section Finalización del Demo
     Pulido del Demo + datos presentables     :d1, 2026-07-13, 1w
-    Plataforma lista para onboarding (M3)    :milestone, d2, 2026-07-19, 0d
+    Plataforma lista (M3)                    :milestone, d2, 2026-07-19, 0d
 ```
 
 *Las fechas asumen kickoff el 2026-05-25 (el lunes siguiente a la aprobación del plan). Si la aprobación se demora, todas las fechas se corren por el mismo período.*
@@ -166,7 +159,7 @@ gantt
 ### Semana 8 — Certificación PHI Gate ← **M3: Plataforma lista**
 **Construcción:** Pulido final del Demo.
 **HIPAA:** Los 14 controles verificados, documentados individualmente, y firmados (incluido el control #14).
-**Entregable:** Certificación del PHI Gate. La plataforma está técnicamente lista para aceptar el onboarding del primer hospital cuando aparezca.
+**Entregable:** Certificación del PHI Gate. La plataforma está técnicamente lista para uso regulado por HIPAA.
 
 ---
 
@@ -184,7 +177,7 @@ Estos ítems determinan si el cronograma se sostiene:
 
 ## PHI Gate — los 14 controles
 
-Aunque en este contrato no se carga ningún PHI real, el PHI Gate se certifica listo para que cuando Med-Rok firme el primer hospital no queden trabas de seguridad. Los 14 controles firmados al fin de la Semana 8:
+Aunque en este contrato no se carga ningún PHI real, el PHI Gate se certifica listo para que no queden trabas de seguridad. Los 14 controles firmados al fin de la Semana 8:
 
 | # | Control | Cuándo se verifica |
 |---|---|---|
@@ -213,7 +206,6 @@ Aunque en este contrato no se carga ningún PHI real, el PHI Gate se certifica l
 | La lógica del dominio legacy revela complejidad desconocida | La fase de construcción se extiende 1–2 semanas | Buffer incorporado en Semana 6 (UAT) donde se acomodan las correcciones de bugs. |
 | Scope creep en los módulos nuevos | La fase de construcción se extiende | Alcance congelado al fin de Semana 1. Los cambios se rutean a un contrato siguiente. |
 | El proveedor del pentest tiene lead time mayor a 1 semana | El pentest termina más tarde | Contrato firmado en Semana 1; proveedores alternativos identificados como backup. |
-| Med-Rok quiere onboardear un hospital antes de certificar el PHI Gate | Exposición HIPAA | El onboarding de hospitales sólo comienza después de certificar el PHI Gate (hito de Semana 8). |
 
 ---
 
@@ -223,7 +215,6 @@ El demo actual de Transpedite corre sobre componentes tecnológicos que no recib
 
 Por eso el proyecto reconstruye la aplicación sobre un stack moderno y con soporte vigente, en lugar de simplemente mudar el código legacy a la nueva infraestructura AWS. El demo actual sigue operando durante todo el proyecto, sin interrupciones, hasta que la plataforma nueva esté lista para reemplazarlo.
 
-La modernización cierra una brecha de cumplimiento que ya existe hoy. Es lo que habilita a Med-Rok a empezar a vender la plataforma a hospitales.
 
 ---
 
